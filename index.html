@@ -1,97 +1,311 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Esportes</title>
 
     <style>
-        body{
-            font-family: Arial, sans-serif;
-            background-color: #e8f5e9;
+        /* ===== CONFIGURAÇÕES GERAIS ===== */
+        * {
             margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: linear-gradient(135deg, #e8f5e9, #e3f2fd);
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* ===== CABEÇALHO ===== */
+        header {
+            background: linear-gradient(135deg, #1b5e20, #2e7d32);
+            color: white;
             text-align: center;
+            padding: 45px 20px;
         }
 
-        header{
-            background-color: #2e7d32;
-            color: white;
-            padding: 20px;
+        header h1 {
+            font-size: 42px;
+            margin-bottom: 10px;
         }
 
-        h1{
-            margin: 0;
+        header p {
+            font-size: 18px;
+            opacity: 0.9;
         }
 
-        section{
-            margin: 20px;
-            padding: 20px;
-            background-color: white;
-            border-radius: 10px;
-        }
-
-        img{
-            width: 300px;
-            border-radius: 10px;
-            margin: 10px;
-        }
-
-        h2{
-            color: #1565c0;
-        }
-
-        footer{
-            background-color: #2e7d32;
-            color: white;
+        /* ===== MENU ===== */
+        nav {
+            background-color: #145a18;
             padding: 15px;
-            margin-top: 20px;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            margin: 0 15px;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #81d4fa;
+        }
+
+        /* ===== CONTEÚDO ===== */
+        main {
+            max-width: 1100px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .introducao {
+            text-align: center;
+            margin-bottom: 35px;
+        }
+
+        .introducao h2 {
+            color: #1565c0;
+            font-size: 30px;
+            margin-bottom: 10px;
+        }
+
+        .esportes {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        /* ===== CARDS ===== */
+        .card {
+            background-color: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.12);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.18);
+        }
+
+        .card img {
+            width: 100%;
+            height: 230px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .card-conteudo {
+            padding: 22px;
+        }
+
+        .card h2 {
+            color: #1565c0;
+            margin-bottom: 12px;
+            font-size: 25px;
+        }
+
+        .card p {
+            color: #555;
+        }
+
+        /* ===== BOTÃO ===== */
+        .botao {
+            display: inline-block;
+            margin-top: 18px;
+            padding: 10px 18px;
+            background-color: #2e7d32;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+
+        .botao:hover {
+            background-color: #1b5e20;
+        }
+
+        /* ===== RODAPÉ ===== */
+        footer {
+            background-color: #1b5e20;
+            color: white;
+            text-align: center;
+            padding: 25px 15px;
+            margin-top: 50px;
+        }
+
+        footer p {
+            margin: 5px;
+        }
+
+        /* ===== RESPONSIVIDADE ===== */
+
+        @media (max-width: 800px) {
+            .esportes {
+                grid-template-columns: 1fr;
+            }
+
+            header h1 {
+                font-size: 34px;
+            }
+
+            nav a {
+                display: inline-block;
+                margin: 5px 10px;
+            }
+        }
+
+        @media (max-width: 500px) {
+            header {
+                padding: 35px 15px;
+            }
+
+            header h1 {
+                font-size: 28px;
+            }
+
+            header p {
+                font-size: 16px;
+            }
+
+            main {
+                margin: 25px auto;
+            }
+
+            .card img {
+                height: 200px;
+            }
         }
     </style>
 </head>
 
 <body>
 
-<header>
-    <h1>⚽ Esportes ⚽</h1>
-    <p>Um trabalho sobre alguns esportes populares.</p>
-</header>
+    <!-- CABEÇALHO -->
+    <header>
+        <h1>⚽ Esportes 🏀</h1>
+        <p>Conheça alguns dos esportes mais populares do mundo!</p>
+    </header>
 
-<section>
-    <h2>Futebol</h2>
+    <!-- MENU -->
+    <nav>
+        <a href="#futebol">Futebol</a>
+        <a href="#basquete">Basquete</a>
+        <a href="#volei">Vôlei</a>
+    </nav>
 
-    <img src="https://images.unsplash.com/photo-1517466787929-bc90951d0974?w=600" alt="Futebol">
+    <!-- CONTEÚDO PRINCIPAL -->
+    <main>
 
-    <p>
-        O futebol é um dos esportes mais populares do mundo.
-        Ele é jogado por duas equipes com 11 jogadores cada.
-        O objetivo é marcar gols no time adversário.
-    </p>
-</section>
+        <div class="introducao">
+            <h2>Esportes Populares</h2>
+            <p>
+                Os esportes fazem parte da vida de milhões de pessoas,
+                promovendo saúde, diversão, disciplina e trabalho em equipe.
+            </p>
+        </div>
 
-<section>
-    <h2>Basquete</h2>
+        <div class="esportes">
 
-    <img src="https://images.unsplash.com/photo-1546519638-68e109498ffc?w=600" alt="Basquete">
+            <!-- FUTEBOL -->
+            <section class="card" id="futebol">
 
-    <p>
-        O basquete é jogado com uma bola e duas cestas.
-        Cada equipe tenta fazer o maior número de pontos durante a partida.
-    </p>
-</section>
+                <img
+                    src="https://images.unsplash.com/photo-1517466787929-bc90951d0974?w=800"
+                    alt="Jogadores praticando futebol"
+                >
 
-<section>
-    <h2>Vôlei</h2>
+                <div class="card-conteudo">
+                    <h2>⚽ Futebol</h2>
 
-    <img src="https://images.unsplash.com/photo-1517649763962-0c623066013b?w=600" alt="Vôlei">
+                    <p>
+                        O futebol é um dos esportes mais populares do mundo.
+                        Ele é jogado por duas equipes com 11 jogadores cada.
+                        O objetivo é marcar gols no time adversário.
+                    </p>
 
-    <p>
-        No vôlei, duas equipes disputam pontos passando a bola por cima da rede.
-        O trabalho em equipe é muito importante nesse esporte.
-    </p>
-</section>
+                    <a class="botao" href="#futebol">
+                        Saiba mais
+                    </a>
+                </div>
 
-<footer>
-    <p>Trabalho de HTML - 1º Ano do Ensino Médio</p>
-</footer>
+            </section>
+
+            <!-- BASQUETE -->
+            <section class="card" id="basquete">
+
+                <img
+                    src="https://images.unsplash.com/photo-1546519638-68e109498ffc?w=800"
+                    alt="Jogador praticando basquete"
+                >
+
+                <div class="card-conteudo">
+                    <h2>🏀 Basquete</h2>
+
+                    <p>
+                        O basquete é jogado com uma bola e duas cestas.
+                        Cada equipe tenta fazer o maior número de pontos
+                        durante a partida.
+                    </p>
+
+                    <a class="botao" href="#basquete">
+                        Saiba mais
+                    </a>
+                </div>
+
+            </section>
+
+            <!-- VÔLEI -->
+            <section class="card" id="volei">
+
+                <img
+                    src="https://images.unsplash.com/photo-1517649763962-0c623066013b?w=800"
+                    alt="Jogadores praticando vôlei"
+                >
+
+                <div class="card-conteudo">
+                    <h2>🏐 Vôlei</h2>
+
+                    <p>
+                        No vôlei, duas equipes disputam pontos passando
+                        a bola por cima da rede. O trabalho em equipe
+                        é muito importante nesse esporte.
+                    </p>
+
+                    <a class="botao" href="#volei">
+                        Saiba mais
+                    </a>
+                </div>
+
+            </section>
+
+        </div>
+
+    </main>
+
+    <!-- RODAPÉ -->
+    <footer>
+        <p>🏆 Trabalho de HTML - 1º Ano do Ensino Médio</p>
+        <p>Desenvolvido para a aula de Tecnologia</p>
+    </footer>
 
 </body>
+
 </html>
